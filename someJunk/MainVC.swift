@@ -110,6 +110,7 @@ extension MainVC: NSFetchedResultsControllerDelegate {
         let fetchRequest = NSFetchRequest(entityName: "Item")
         let sortDescriptor = NSSortDescriptor(key: "created_at", ascending: true)
         fetchRequest.sortDescriptors = [sortDescriptor]
+        fetchRequest.relationshipKeyPathsForPrefetching = ["image"]
         
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: appDelegate.managedObjectContext, sectionNameKeyPath: section, cacheName: nil)
         
